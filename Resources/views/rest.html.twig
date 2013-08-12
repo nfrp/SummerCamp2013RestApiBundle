@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>REST API Playground</title>
+    <link rel="stylesheet" href="{{ asset( 'bundles/ezsystemssummercamp2013restapi/css/pure-min.css' )  }}">
+    <style>
+        .list li
+        {
+            list-style-type:none;
+            padding: 0.5em 0;
+        }
+        .list button
+        {
+            margin: 0 0.2em;
+        }
+        .list .remove
+        {
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>REST API playground</h1>
+
+    <p>Site URI: <code>{{ site_uri }}</code></p>
+    <p>REST root: <code>{{ rest_root }}</code></p>
+
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div class="list">
+                <h2>List</h2>
+                <ul>
+
+                </ul>
+            </div>
+        </div><!--
+        --><div class="pure-u-1-2">
+            <div class="content">
+            <h2>Content</h2>
+            <div class="main-content"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset( 'extension/ezjscore/design/standard/javascript/jquery-1.9.1.min.js' ) }}"></script>
+    <script src="{{ asset( 'bundles/ezsystemssummercamp2013restapi/js/CAPI.js' ) }}"></script>
+    <script src="{{ asset( 'bundles/ezsystemssummercamp2013restapi/js/workshop.js' ) }}"></script>
+    <script>
+        RestAdmin.init("{{ site_uri|trim('/') }}", "{{ rest_root }}", "admin", "ezpublish");
+        RestAdmin.render();
+    </script>
+</body>
+</html>
