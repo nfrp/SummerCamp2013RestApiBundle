@@ -10,17 +10,56 @@ var RestAdmin = (function ($) {
         init, render;
 
     _showDetails = function (contentId) {
+        var contentService = api.getContentService(),
+            userService = api.getUserService();
+
         $content.html('');
-        $content.append('<p>FIX ME show details of ' + contentId + '</p>');
         $content.append('<p>For instance, the section name and the name of the owner</p>');
+        contentService.loadContentInfo(contentId, function (err, response) {
+            var struct;
+
+            if ( !err ) {
+                struct = JSON.parse(response.body);
+
+                $content.append('<p><b>Remote id</b>: ' + struct.Content._remoteId + '</p>');
+                contentService.loadSection(struct.Content.Section._href, function (err, response) {
+                    var s, $line;
+
+                    if ( !err ) {
+                        s = JSON.parse(response.body);
+                        $line = $('<p/>');
+                        $line.html("<b>Section name:</b> " + s.Section.name);
+                        $content.append($line);
+                    }
+                });
+                userService.loadUser(struct.Content.Owner._href, function (err, response) {
+                    var s, $line;
+
+                    if ( !err ) {
+                        s = JSON.parse(response.body);
+                        $line = $('<p/>');
+                        $line.html("<b>Owner:</b> " + s.User.name);
+                        $content.append($line);
+                    }
+                });
+
+            }
+        });
     };
 
     _remove = function (contentId) {
-        alert('FIX ME removal of ' + contentId);
+        var contentService = api.getContentService();
+        if ( confirm('Remove ' + contentId + ' ?') ) {
+            contentService.deleteContent(contentId, function (err, response) {
+                $list.html('');
+                _renderRoot();
+            });
+        }
     };
 
-    _browse = function (childrenId) {
-        alert('FIX ME browse to ' + childrenId);
+    _browse = function (contentId) {
+        $list.html('');
+        _renderList(contentId);
     };
 
     _renderElement = function (Location, ContentInfo) {
@@ -32,7 +71,7 @@ var RestAdmin = (function ($) {
         $li.append('<button class="pure-button pure-button-primary details">Details</button>');
         $li.append('<button class="pure-button pure-button-primary remove">Remove</button>');
         $a.html(ContentInfo.Content.Name);
-        $a.attr('href', Location.Location.Children._href);
+        $a.attr('href', Location.Location._href);
         $li.append($a);
         $list.append($li);
     };
