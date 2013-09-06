@@ -29,5 +29,5 @@
 * Create an image content (draft)
   `curl -u "admin:ezsc" -i -H "Accept: application/json" -H "Content-Type: application/vnd.ez.api.ContentCreate+json" -X POST -d @createimage.json http://ezpublish.ezsc/api/ezp/v2/content/objects`
 * Publish the image content (version list is buggy)
-  `curl -u "admin:ezsc" -H "Accept: application\/vnd.ez.api.VersionList+json" http://ezpublish5.loc/api/ezp/v2/content/objects/109/versions`
-  `curl -u "admin:ezsc" -X PUBLISH http://ezpublish5.loc/api/ezp/v2/content/objects/109/versions/1`
+  `curl -u "admin:ezsc" -H "Accept: application\/vnd.ez.api.VersionList+json" http://ezpublish.ezsc/api/ezp/v2/content/objects/109/versions`
+  `curl -u "admin:ezsc" -X PUBLISH http://ezpublish.ezsc/api/ezp/v2/content/objects/109/versions/1`
