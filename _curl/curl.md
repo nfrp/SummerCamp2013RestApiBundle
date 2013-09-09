@@ -31,6 +31,11 @@ previous response.
   `curl -u "admin:ezsc" -X DELETE http://ezpublish.ezsc/api/ezp/v2/content/objects/XXX`
 * Create an image content (draft)
   `curl -u "admin:ezsc" -i -H "Accept: application/json" -H "Content-Type: application/vnd.ez.api.ContentCreate+json" -X POST -d @createimage.json http://ezpublish.ezsc/api/ezp/v2/content/objects`
+  The draft is created, but due to the bug [EZP-21522](https://jira.ez.no/browse/EZP-21522), it will be impossible to
+  to publish it, to avoid this issue, you can create the draft with the
+  `createimage_without_image.json` file instead, which will create an image
+  object without any image...
+  `curl -u "admin:ezsc" -i -H "Accept: application/json" -H "Content-Type: application/vnd.ez.api.ContentCreate+json" -X POST -d @createimage_without_image.json http://ezpublish.ezsc/api/ezp/v2/content/objects`
 * Publish the image content (version list is buggy)
   `curl -u "admin:ezsc" -H "Accept: application\/vnd.ez.api.VersionList+json" http://ezpublish.ezsc/api/ezp/v2/content/objects/109/versions`
   `curl -u "admin:ezsc" -X PUBLISH http://ezpublish.ezsc/api/ezp/v2/content/objects/109/versions/1`
