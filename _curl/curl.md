@@ -13,6 +13,9 @@
 
 ## Exercices
 
+Except for the first two commands, the requested URI is always taken from a
+previous response.
+
 * Get the root structure in JSON
   `curl -u "admin:ezsc" -H "application/vnd.ez.api.Root+json" http://ezpublish.ezsc/api/ezp/v2/`
 * Get the root structure in XML
