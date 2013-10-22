@@ -17,16 +17,16 @@ Except for the first two commands, the requested URI is always taken from a
 previous response.
 
 * Get the root structure in JSON
-  `curl -u "admin:ezsc" -H "application/vnd.ez.api.Root+json" http://ezpublish.ezsc/api/ezp/v2/`
+  `curl -u "admin:ezsc" -H "Accept: application/vnd.ez.api.Root+json" http://ezpublish.ezsc/api/ezp/v2/`
 * Get the root structure in XML
-  `curl -u "admin:ezsc" -H "application/vnd.ez.api.Root+xml" http://ezpublish.ezsc/api/ezp/v2/`
+  `curl -u "admin:ezsc" -H "Accept: application/vnd.ez.api.Root+xml" http://ezpublish.ezsc/api/ezp/v2/`
 * Display locations under the root location
-  `curl -u "admin:ezsc" -H "application/vnd.ez.api.Location+xml" http://ezpublish.ezsc/api/ezp/v2/content/locations//1/2`
-  `curl -u "admin:ezsc" -H "application/vnd.ez.api.LocationList+xml" http://ezpublish.ezsc/api/ezp/v2/content/locations//1/2/children`
+  `curl -u "admin:ezsc" -H "Accept: application/vnd.ez.api.Location+xml" http://ezpublish.ezsc/api/ezp/v2/content/locations//1/2`
+  `curl -u "admin:ezsc" -H "Accept: application/vnd.ez.api.LocationList+xml" http://ezpublish.ezsc/api/ezp/v2/content/locations//1/2/children`
 * Read the content and the content info of one of those location
-  `curl -u "admin:ezsc" -H "application/vnd.ez.api.Location+xml" http://ezpublish.ezsc/api/ezp/v2/content/locations//1/2/60`
-  `curl -u "admin:ezsc" -H "application/vnd.ez.api.Content+xml" http://ezpublish.ezsc/api/ezp/v2/content/objects/58`
-  `curl -u "admin:ezsc" -H "application/vnd.ez.api.ContentInfo+xml" http://ezpublish.ezsc/api/ezp/v2/content/objects/58`
+  `curl -u "admin:ezsc" -H "Accept: application/vnd.ez.api.Location+xml" http://ezpublish.ezsc/api/ezp/v2/content/locations//1/2/60`
+  `curl -u "admin:ezsc" -H "Accept: application/vnd.ez.api.Content+xml" http://ezpublish.ezsc/api/ezp/v2/content/objects/58`
+  `curl -u "admin:ezsc" -H "Accept: application/vnd.ez.api.ContentInfo+xml" http://ezpublish.ezsc/api/ezp/v2/content/objects/58`
 * Delete a content
   `curl -u "admin:ezsc" -X DELETE http://ezpublish.ezsc/api/ezp/v2/content/objects/XXX`
 * Create an image content (draft)
