@@ -1,5 +1,5 @@
 {
-    "name": "nfrp/SummerCamp2013RestApiBundle",
+    "name": "ezsystems/summercamp2013restapibundle",
     "version": "1.0.0",
     "dist": {
         "url": "https://github.com/nfrp/SummerCamp2013RestApiBundle",
