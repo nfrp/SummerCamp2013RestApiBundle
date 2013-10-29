@@ -42,11 +42,11 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset( 'extension/ezjscore/design/standard/javascript/jquery-1.9.1.min.js' ) }}"></script>
+    <script src="{{ asset( 'extension/ezjscore/design/standard/javascript/jquery-1.10.2.min.js' ) }}"></script>
     <script src="{{ asset( 'bundles/ezsystemssummercamp2013restapi/js/CAPI.js' ) }}"></script>
     <script src="{{ asset( 'bundles/ezsystemssummercamp2013restapi/js/workshop.js' ) }}"></script>
     <script>
-        RestAdmin.init("{{ site_uri|trim('/') }}", "{{ rest_root }}", "admin", "ezsc");
+        RestAdmin.init("{{ site_uri|trim('/') }}", "{{ rest_root }}", "admin", "publish");
         RestAdmin.render();
     </script>
 </body>
